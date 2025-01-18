@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "version"
-      - ".github/workflows/upload-itchio.yml"
+      - ".github/workflows/godot-to-itch.yml"
       - "export_presets.html.example"
 
 env:
