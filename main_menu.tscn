@@ -33,7 +33,7 @@ theme_override_font_sizes/font_size = 72
 text = "Massive Destruction"
 uppercase = true
 
-[node name="button_star_continue" type="Button" parent="Node2D/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="button_start_continue" type="Button" parent="Node2D/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ho0km")
 disabled = true
