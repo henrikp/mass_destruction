@@ -2,10 +2,8 @@ name: itch.io upload
 
 on:
   push:
-    paths:
-      - "version"
-      - ".github/workflows/godot-to-itch.yml"
-      - "export_presets.html.example"
+    branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   WORKING_DIRECTORY: .
