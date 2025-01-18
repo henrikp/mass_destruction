@@ -24,16 +24,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
-[github_to_itch]
-
-config/itch_username=""
-config/itch_project_name=""
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
