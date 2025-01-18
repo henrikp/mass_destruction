@@ -3,6 +3,10 @@ name: itch.io upload
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "version"
+      - ".github/workflows/godot-to-itch.yml.yml"
+      - "export_presets.html.example"
   workflow_dispatch:
 
 env:
@@ -10,7 +14,6 @@ env:
 
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
