@@ -3,28 +3,21 @@
 [ext_resource type="Script" path="res://main_menu.gd" id="1_fpw7q"]
 [ext_resource type="Theme" uid="uid://c2cxprenj6tso" path="res://main_menu.tres" id="1_ho0km"]
 
-[node name="menu" type="Node"]
-
-[node name="Node2D" type="Node2D" parent="."]
+[node name="main_menu" type="Node"]
 script = ExtResource("1_fpw7q")
 
-[node name="MarginContainer" type="MarginContainer" parent="Node2D"]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="Node2D"]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="CenterContainer" type="CenterContainer" parent="Node2D/MarginContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/MarginContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="label_gamename" type="Label" parent="Node2D/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="label_gamename" type="Label" parent="Node2D/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ho0km")
 theme_type_variation = &"HeaderLarge"
@@ -33,16 +26,15 @@ theme_override_font_sizes/font_size = 72
 text = "Massive Destruction"
 uppercase = true
 
-[node name="button_start_continue" type="Button" parent="Node2D/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="button_start_continue" type="Button" parent="Node2D/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ho0km")
 disabled = true
 text = "START GAME"
 
-[node name="button_quit" type="Button" parent="Node2D/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="button_quit" type="Button" parent="Node2D/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ho0km")
 text = "QUIT"
-script = ExtResource("1_fpw7q")
 
-[connection signal="button_down" from="Node2D/MarginContainer/CenterContainer/VBoxContainer/button_quit" to="Node2D/MarginContainer/CenterContainer/VBoxContainer/button_quit" method="_on_button_down"]
+[connection signal="button_down" from="Node2D/CenterContainer/VBoxContainer/button_quit" to="." method="_on_button_quit_button_down"]

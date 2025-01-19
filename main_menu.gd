@@ -2,13 +2,13 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#if OS.has_feature("HTML5"):
-	# placeholder, hide the quit button if we are in a browser 
+	if OS.has_feature("HTML5"):
+		var btn = $Node2D/CenterContainer/VBoxContainer/button_quit
+		btn.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func _on_button_down() -> void:
-	get_tree().quit()
+func _on_button_quit_button_down() -> void:
+	$Node2D/CenterContainer/VBoxContainer/button_quit.get_tree().quit()
