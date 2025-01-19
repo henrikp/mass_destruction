@@ -22,7 +22,7 @@ layout_mode = 2
 theme = ExtResource("1_ho0km")
 theme_type_variation = &"HeaderLarge"
 theme_override_colors/font_shadow_color = Color(0.807359, 0.640084, 0.044396, 1)
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 100
 text = "Massive Destruction"
 uppercase = true
 
@@ -37,4 +37,4 @@ layout_mode = 2
 theme = ExtResource("1_ho0km")
 text = "QUIT"
 
-[connection signal="button_down" from="Node2D/CenterContainer/VBoxContainer/button_quit" to="." method="_on_button_quit_button_down"]
+[connection signal="pressed" from="Node2D/CenterContainer/VBoxContainer/button_quit" to="." method="_on_button_quit_pressed"]

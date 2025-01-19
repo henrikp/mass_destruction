@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_button_quit_button_down() -> void:
+func _on_button_quit_pressed() -> void:
 	$Node2D/CenterContainer/VBoxContainer/button_quit.get_tree().quit()
