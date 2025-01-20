@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://bj2rjt3fqy4i2"]
+[gd_scene load_steps=5 format=3 uid="uid://bj2rjt3fqy4i2"]
+
+[ext_resource type="PackedScene" uid="uid://i8pxcfvls3j7" path="res://scenes/forest_bg.tscn" id="1_jykmf"]
+[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_t8l0m"]
+[ext_resource type="PackedScene" uid="uid://bywbaicprurfq" path="res://scenes/forest_ground.tscn" id="2_iv7as"]
+[ext_resource type="PackedScene" uid="uid://dmbscrfyb4goy" path="res://scenes/player.tscn" id="3_nxqv1"]
 
 [node name="Main Game" type="Node"]
+script = ExtResource("1_t8l0m")
+
+[node name="forest_BG" parent="." instance=ExtResource("1_jykmf")]
+
+[node name="forest ground" parent="." instance=ExtResource("2_iv7as")]
+position = Vector2(0, 720)
+
+[node name="Player" parent="." instance=ExtResource("3_nxqv1")]
+position = Vector2(277, 446)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
