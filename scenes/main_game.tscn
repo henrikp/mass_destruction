@@ -10,7 +10,9 @@ script = ExtResource("1_t8l0m")
 
 [node name="forest_BG" parent="." instance=ExtResource("1_jykmf")]
 
-[node name="forest ground" parent="." instance=ExtResource("2_iv7as")]
+[node name="Ground" type="Node" parent="."]
+
+[node name="forest ground" parent="Ground" instance=ExtResource("2_iv7as")]
 position = Vector2(0, 720)
 
 [node name="Player" parent="." instance=ExtResource("3_nxqv1")]
