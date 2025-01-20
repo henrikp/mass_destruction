@@ -14,7 +14,7 @@ config/name="Massive Destruction"
 config/description="Pirate Software - Game Jam 16
 "
 config/version="alpha"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
