@@ -9,7 +9,7 @@ var ground_generated : Array
 var last_ground 
 
 var speed:float
-const START_SPEED:float = 1
+const START_SPEED:float = 5
 #const MAX_SPEED:int = 25
 var screen_size : Vector2i
 
