@@ -50,8 +50,9 @@ func _process(_delta):
 		generate_floor()
 	
 	#Deletes objects that have gone off the screen
+	#The 640 is to get the centre of the camera (the camera position) and the 128 is the buffer (adjustable)
 	for object in objects_generated_array:
-		if object.position.x < ($Camera2D.position.x - screen_size.x * 2.2):
+		if object.position.x + object.get_node("Sprite2D").texture.get_width() + 640 + 128 < $Camera2D.position.x:
 			remove_object(object)
 	
 	#Debugging: counts the number of children in the Ground node and prints it to the log
@@ -72,8 +73,8 @@ func generate_obs():
 	var obstacle_type = forest_tree_types[randi() % forest_tree_types.size()]
 	var obs
 	obs = obstacle_type.instantiate()
-	var obs_height = obs.get_node("Sprite2D").texture.get_height()
-	var obs_scale = obs.get_node("Sprite2D").scale
+	#var obs_height = obs.get_node("Sprite2D").texture.get_height()
+	#var obs_scale = obs.get_node("Sprite2D").scale
 	var obs_x : int = $Camera2D.position.x + screen_size.x + 128
 	var obs_y : int = screen_size.y - ground_height + 10
 	last_obstacle = obs
