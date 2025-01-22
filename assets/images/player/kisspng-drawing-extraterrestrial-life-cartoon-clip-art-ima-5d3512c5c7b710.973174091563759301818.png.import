@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx54pes73770f"
-path="res://.godot/imported/GroundSmall.png-aabcadc47a464eb08bc93bcbc27da190.ctex"
+uid="uid://8n5pp4edvkf6"
+path="res://.godot/imported/kisspng-drawing-extraterrestrial-life-cartoon-clip-art-ima-5d3512c5c7b710.973174091563759301818.png-fe32f2636de4b6e01a15e7033bd2538e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GroundSmall.png"
-dest_files=["res://.godot/imported/GroundSmall.png-aabcadc47a464eb08bc93bcbc27da190.ctex"]
+source_file="res://assets/images/player/kisspng-drawing-extraterrestrial-life-cartoon-clip-art-ima-5d3512c5c7b710.973174091563759301818.png"
+dest_files=["res://.godot/imported/kisspng-drawing-extraterrestrial-life-cartoon-clip-art-ima-5d3512c5c7b710.973174091563759301818.png-fe32f2636de4b6e01a15e7033bd2538e.ctex"]
 
 [params]
 

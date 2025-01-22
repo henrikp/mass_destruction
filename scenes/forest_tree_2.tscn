@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfhljv1i1qsgn"]
+
+[ext_resource type="Texture2D" uid="uid://b0rxejvhk4lie" path="res://assets/images/obstacles/foliagePack_011.png" id="1_olv5b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57r3m"]
+radius = 34.0
+height = 208.0
+
+[node name="forest_tree_2" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -102)
+shape = SubResource("CapsuleShape2D_57r3m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -117)
+texture = ExtResource("1_olv5b")

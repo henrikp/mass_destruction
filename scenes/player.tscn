@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmbscrfyb4goy"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_s3cwo"]
+[ext_resource type="Texture2D" uid="uid://8n5pp4edvkf6" path="res://assets/images/player/kisspng-drawing-extraterrestrial-life-cartoon-clip-art-ima-5d3512c5c7b710.973174091563759301818.png" id="1_s8mk7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huaq5"]
+radius = 153.0
+height = 346.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_s3cwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14, 24)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_s8mk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_huaq5")

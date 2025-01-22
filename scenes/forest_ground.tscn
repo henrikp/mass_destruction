@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bywbaicprurfq"]
+
+[ext_resource type="Texture2D" uid="uid://cx54pes73770f" path="res://assets/images/terrain/GroundSmall.png" id="1_en4xn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs668"]
+size = Vector2(2560, 128)
+
+[node name="forest ground" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
+texture = ExtResource("1_en4xn")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1280, -64)
+shape = SubResource("RectangleShape2D_cs668")
