@@ -29,7 +29,6 @@ uppercase = true
 [node name="button_start_continue" type="Button" parent="Node2D/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ho0km")
-disabled = true
 text = "START GAME"
 
 [node name="button_quit" type="Button" parent="Node2D/CenterContainer/VBoxContainer"]
@@ -37,4 +36,5 @@ layout_mode = 2
 theme = ExtResource("1_ho0km")
 text = "QUIT"
 
+[connection signal="pressed" from="Node2D/CenterContainer/VBoxContainer/button_start_continue" to="." method="_on_button_start_continue_pressed"]
 [connection signal="pressed" from="Node2D/CenterContainer/VBoxContainer/button_quit" to="." method="_on_button_quit_pressed"]
