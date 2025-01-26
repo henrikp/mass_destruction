@@ -11,9 +11,10 @@ func _process(_delta):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("transform_Destruction") && alive:
 		print("KABOOM!")
-		hide()
+		
 		alive = false
 		$GPUParticles2D.emitting = true
+		$Sprite2D.hide()
 		#set_scale(Vector2(2.0, 2.0))
 	## Add the gravity.
 	#if not is_on_floor():

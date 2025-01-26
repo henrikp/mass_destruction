@@ -33,7 +33,7 @@ func _ready():
 
 func new_game():
 	$Player.position = PLAYER_STARTING_POSITION
-	$Player.show()
+	$"Player/Sprite2D".show()
 	$Player.alive = true
 	$Player.velocity = Vector2i(0,0)
 	$Camera2D.position = CAMERA_STARTING_POSITION
@@ -70,9 +70,11 @@ func _process(_delta):
 		#ground_children_debug = get_node("Ground").get_child_count()
 		#print(ground_children_debug)
 	else:
-		$"CenterContainer/Game restart menu".show()
-		var center : Vector2 = $Camera2D.get_screen_center_position()
-		$"CenterContainer/Game restart menu".position = Vector2(center.x - 100, center.y - 100)
+		# We are dead and no particles on screen
+		if !$"Player/GPUParticles2D".emitting:
+			$"CenterContainer/Game restart menu".show()
+			var center : Vector2 = $Camera2D.get_screen_center_position()
+			$"CenterContainer/Game restart menu".position = Vector2(center.x - 100, center.y - 100)
 		
 func generate_floor():
 	#The generates the floor 100 pixels off the right edge of the screen
