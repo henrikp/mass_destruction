@@ -1,18 +1,19 @@
 extends Node
 
+@onready var quit_button = $Node2D/CenterContainer/VBoxContainer/button_quit
+@onready var main_game_scene = "res://scenes/main_game.tscn"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if OS.has_feature("wasm"):
-		var btn = $Node2D/CenterContainer/VBoxContainer/button_quit
-		btn.visible = false
+		quit_button.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_button_quit_pressed() -> void:
-	$Node2D/CenterContainer/VBoxContainer/button_quit.get_tree().quit()
-
+	quit_button.get_tree().quit()
 
 func _on_button_start_continue_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_game.tscn")
+	get_tree().change_scene_to_file(main_game_scene)

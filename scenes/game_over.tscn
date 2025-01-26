@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc1hrnxe4lo3h"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pm3mt"]
+[ext_resource type="Theme" uid="uid://c2cxprenj6tso" path="res://main_menu.tres" id="1_qko78"]
+
+[node name="Game restart menu" type="Node2D"]
+position = Vector2(563, 182)
+script = ExtResource("1_pm3mt")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_qko78")
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_qko78")
+text = "RESTART"
+
+[connection signal="pressed" from="HBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

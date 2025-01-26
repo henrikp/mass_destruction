@@ -7,6 +7,8 @@ radius = 52.0
 height = 210.0
 
 [node name="forest_tree_1" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -99)
