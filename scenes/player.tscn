@@ -1,79 +1,60 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmbscrfyb4goy"]
+[gd_scene load_steps=8 format=3 uid="uid://dmbscrfyb4goy"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_s3cwo"]
-[ext_resource type="Texture2D" uid="uid://8n5pp4edvkf6" path="res://assets/images/player/kisspng-drawing-extraterrestrial-life-cartoon-clip-art-ima-5d3512c5c7b710.973174091563759301818.png" id="1_s8mk7"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_s3cwo"]
 [ext_resource type="Shader" path="res://scripts/player_flash.gdshader" id="2_j7n1t"]
-[ext_resource type="Shader" path="res://scripts/sprite_explosion.gdshader" id="4_16oy1"]
-[ext_resource type="Texture2D" uid="uid://brwo3p57kqsm1" path="res://assets/images/player/4x4-white.png" id="5_gqtsm"]
+[ext_resource type="Material" uid="uid://ce1aw2sf1el37" path="res://scripts/player_explosion.material" id="2_rcs5i"]
+[ext_resource type="Texture2D" uid="uid://djoyeffc247g8" path="res://assets/images/player/32x32-white.png" id="5_o526i"]
+[ext_resource type="SpriteFrames" uid="uid://x3qu6ck5aqjk" path="res://scripts/player_animation.tres" id="6_suul1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huaq5"]
+radius = 297.0
+height = 822.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_turhg"]
 shader = ExtResource("2_j7n1t")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_modifier = 0.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huaq5"]
-radius = 153.0
-height = 346.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_72a83"]
-resource_local_to_scene = true
-shader = ExtResource("4_16oy1")
-shader_parameter/spread = 180.0
-shader_parameter/inherit_emitter_velocity_ratio = 0.0
-shader_parameter/initial_linear_velocity_min = 100.0
-shader_parameter/initial_linear_velocity_max = 100.0
-shader_parameter/orbit_velocity_min = null
-shader_parameter/orbit_velocity_max = null
-shader_parameter/radial_velocity_min = null
-shader_parameter/radial_velocity_max = null
-shader_parameter/linear_accel_min = null
-shader_parameter/linear_accel_max = null
-shader_parameter/radial_accel_min = null
-shader_parameter/radial_accel_max = null
-shader_parameter/tangent_accel_min = null
-shader_parameter/tangent_accel_max = null
-shader_parameter/damping_min = null
-shader_parameter/damping_max = null
-shader_parameter/scale_min = 1.0
-shader_parameter/scale_max = 1.0
-shader_parameter/lifetime_randomness = null
-shader_parameter/emission_shape_offset = Vector3(0, 0, 0)
-shader_parameter/emission_shape_scale = Vector3(1, 1, 1)
-shader_parameter/emission_box_extents = Vector3(800, 800, 0)
-shader_parameter/sprite = ExtResource("1_s8mk7")
-
 [node name="Player" type="CharacterBody2D"]
+top_level = true
 z_index = 1
 collision_layer = 8
 collision_mask = 7
+platform_floor_layers = 4294967041
 script = ExtResource("1_s3cwo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(4, 28)
+shape = SubResource("CapsuleShape2D_huaq5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 8000
+process_material = ExtResource("2_rcs5i")
+texture = ExtResource("5_o526i")
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+randomness = 1.0
+local_coords = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_turhg")
-position = Vector2(-14, 24)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_s8mk7")
+position = Vector2(-353, -356)
+sprite_frames = ExtResource("6_suul1")
+animation = &"spikes"
+centered = false
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 7
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(4, 28)
 shape = SubResource("CapsuleShape2D_huaq5")
+metadata/_edit_lock_ = true
 
-[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_huaq5")
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 25600
-process_material = SubResource("ShaderMaterial_72a83")
-texture = ExtResource("5_gqtsm")
-lifetime = 5.0
-one_shot = true
-explosiveness = 1.0
-randomness = 0.44
-local_coords = true
-
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="finished" from="GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

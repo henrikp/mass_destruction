@@ -2,7 +2,8 @@ extends Node
 
 signal reset_game
 
-const PLAYER_STARTING_POSITION := Vector2i(277,446)
+#const PLAYER_STARTING_POSITION := Vector2i(277,446)
+const PLAYER_STARTING_POSITION := Vector2i(181,426)
 const CAMERA_STARTING_POSITION := Vector2i(640,360)
 const GAME_OVER = preload("res://scenes/game_over.tscn")
 var restart_menu = GAME_OVER.instantiate()
@@ -33,6 +34,10 @@ func _ready():
 
 func new_game():
 	$Player.position = PLAYER_STARTING_POSITION
+	$Player/GPUParticles2D.restart()	
+	$Player/GPUParticles2D.emitting = false
+	# TODO: create a function in Player to show the correct sprite, based on
+	# current transformation
 	$"Player/Sprite2D".show()
 	$Player.alive = true
 	$Player.velocity = Vector2i(0,0)
@@ -40,8 +45,8 @@ func new_game():
 	$"Ground/forest ground".position = Vector2i(0,720)
 	last_ground = $"Ground/forest ground"
 	ground_height = last_ground.get_node("Sprite2D").texture.get_height()
-	$Player/GPUParticles2D.emitting = false
 	$"CenterContainer/Game restart menu".hide()
+	$Player/Sprite2D.play("default")
 	print("Starting new game")
 
 func _process(_delta):
@@ -73,8 +78,8 @@ func _process(_delta):
 		# We are dead and no particles on screen
 		if !$"Player/GPUParticles2D".emitting:
 			$"CenterContainer/Game restart menu".show()
-			var center : Vector2 = $Camera2D.get_screen_center_position()
-			$"CenterContainer/Game restart menu".position = Vector2(center.x - 100, center.y - 100)
+			var screen_center : Vector2 = $Camera2D.get_screen_center_position()
+			$"CenterContainer/Game restart menu".position = Vector2(screen_center.x - 100, screen_center.y - 100)
 		
 func generate_floor():
 	#The generates the floor 100 pixels off the right edge of the screen

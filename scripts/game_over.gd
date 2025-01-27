@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_restart_button_pressed() -> void:
-	SignalBus.reset_game.emit() # Replace with function body.
+	SignalBus.reset_game.emit()
