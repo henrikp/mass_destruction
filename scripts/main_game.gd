@@ -2,11 +2,11 @@ extends Node
 
 signal reset_game
 
-#const PLAYER_STARTING_POSITION := Vector2i(277,446)
 const PLAYER_STARTING_POSITION := Vector2i(181,426)
 const CAMERA_STARTING_POSITION := Vector2i(640,360)
-const GAME_OVER = preload("res://scenes/game_over.tscn")
-var restart_menu = GAME_OVER.instantiate()
+
+const game_over_scene: PackedScene = preload("res://scenes/game_over.tscn")
+var restart_menu = game_over_scene.instantiate()
 
 var forest_ground_scene: PackedScene = preload("res://scenes/forest_ground.tscn")
 var ground_types := [forest_ground_scene]
@@ -34,10 +34,9 @@ func _ready():
 
 func new_game():
 	$Player.position = PLAYER_STARTING_POSITION
-	$Player/GPUParticles2D.restart()	
+	$Player/GPUParticles2D.restart()
 	$Player/GPUParticles2D.emitting = false
-	# TODO: create a function in Player to show the correct sprite, based on
-	# current transformation
+	$"Player/Sprite2D".set_animation("default") # just in case?
 	$"Player/Sprite2D".show()
 	$Player.alive = true
 	$Player.velocity = Vector2i(0,0)
@@ -47,7 +46,7 @@ func new_game():
 	ground_height = last_ground.get_node("Sprite2D").texture.get_height()
 	$"CenterContainer/Game restart menu".hide()
 	$Player/Sprite2D.play("default")
-	print("Starting new game")
+	print_debug("Starting new game")
 
 func _process(_delta):
 	if $Player.alive == true:
@@ -73,9 +72,9 @@ func _process(_delta):
 		
 		#Debugging: counts the number of children in the Ground node and prints it to the log
 		#ground_children_debug = get_node("Ground").get_child_count()
-		#print(ground_children_debug)
+		#print_debug(ground_children_debug)
 	else:
-		# We are dead and no particles on screen
+		# We are dead
 		if !$"Player/GPUParticles2D".emitting:
 			$"CenterContainer/Game restart menu".show()
 			var screen_center : Vector2 = $Camera2D.get_screen_center_position()

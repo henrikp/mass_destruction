@@ -5,6 +5,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Hide the exit menu button if we are running in a HTML file
 	if OS.has_feature("wasm"):
 		quit_button.visible = false
 

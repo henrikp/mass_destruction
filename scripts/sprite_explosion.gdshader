@@ -301,4 +301,3 @@ void process() {
 		COLOR.a -= 1.0/LIFETIME*DELTA;
 	}
 }
-
