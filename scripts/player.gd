@@ -2,6 +2,28 @@ extends CharacterBody2D
 
 class_name Player
 
+#var TransformationArray = {}
+
+var TransformationArray = {
+	default = {
+		"sprite": "res://assets/images/player/PlayerDefault_0.png",
+		"animation": "default",
+		"texture": ""
+	},
+	spikes = {
+		"sprite": "res://assets/images/player/Player_Spike_Ball.png",
+		"animation": "spikes",
+		"texture": "res://assets/images/player/32x32-white.png"
+	},
+	death = {
+		"sprite": "res://assets/images/player/Player_Spike_Ball.png",
+		"animation": "spikes",
+		"texture": "res://assets/images/player/32x32-white.png"
+	}
+}
+
+
+
 const PLAYER_SPIKE_BALL = preload("res://assets/images/player/Player_Spike_Ball.png")
 const TransformationSprite_default = preload("res://assets/images/player/PlayerDefault_0.png")
 const TransformationShader_S = preload("res://scripts/transformation_s.gdshader")
