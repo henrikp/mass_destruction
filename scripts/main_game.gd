@@ -46,7 +46,8 @@ func new_game():
 	ground_height = last_ground.get_node("Sprite2D").texture.get_height()
 	$"CenterContainer/Game restart menu".hide()
 	$Player/Sprite2D.play("default")
-	print_debug("Starting new game")
+	$Player.reset()
+	#print_debug("Starting new game")
 
 func _process(_delta):
 	if $Player.alive == true:

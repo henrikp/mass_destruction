@@ -1,19 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmbscrfyb4goy"]
+[gd_scene load_steps=5 format=3 uid="uid://dmbscrfyb4goy"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_s3cwo"]
-[ext_resource type="Shader" path="res://scripts/player_flash.gdshader" id="2_j7n1t"]
-[ext_resource type="Material" uid="uid://ce1aw2sf1el37" path="res://scripts/player_explosion.material" id="2_rcs5i"]
-[ext_resource type="Texture2D" uid="uid://djoyeffc247g8" path="res://assets/images/player/32x32-white.png" id="5_o526i"]
+[ext_resource type="Material" uid="uid://dg0thl11rgx7w" path="res://scripts/transformation_r.tres" id="2_87aqk"]
 [ext_resource type="SpriteFrames" uid="uid://x3qu6ck5aqjk" path="res://scripts/player_animation.tres" id="6_suul1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_huaq5"]
 radius = 297.0
 height = 822.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_turhg"]
-shader = ExtResource("2_j7n1t")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_modifier = 0.0
 
 [node name="Player" type="CharacterBody2D"]
 top_level = true
@@ -30,8 +23,7 @@ shape = SubResource("CapsuleShape2D_huaq5")
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 8000
-process_material = ExtResource("2_rcs5i")
-texture = ExtResource("5_o526i")
+process_material = ExtResource("2_87aqk")
 one_shot = true
 speed_scale = 0.5
 explosiveness = 1.0
@@ -39,10 +31,9 @@ randomness = 1.0
 local_coords = true
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_turhg")
+material = ExtResource("2_87aqk")
 position = Vector2(-353, -356)
 sprite_frames = ExtResource("6_suul1")
-animation = &"spikes"
 centered = false
 
 [node name="Hitbox" type="Area2D" parent="."]
