@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj2rjt3fqy4i2"]
+[gd_scene load_steps=7 format=3 uid="uid://bj2rjt3fqy4i2"]
 
 [ext_resource type="PackedScene" uid="uid://i8pxcfvls3j7" path="res://scenes/forest_bg.tscn" id="1_jykmf"]
-[ext_resource type="Script" path="res://scenes/main_game.gd" id="1_t8l0m"]
+[ext_resource type="Script" path="res://scripts/main_game.gd" id="1_t8l0m"]
 [ext_resource type="PackedScene" uid="uid://bywbaicprurfq" path="res://scenes/forest_ground.tscn" id="2_iv7as"]
 [ext_resource type="PackedScene" uid="uid://dmbscrfyb4goy" path="res://scenes/player.tscn" id="3_nxqv1"]
+[ext_resource type="PackedScene" uid="uid://bc1hrnxe4lo3h" path="res://scenes/game_over.tscn" id="5_ccleq"]
+[ext_resource type="Script" path="res://scripts/SignalBus.gd" id="5_hh6r2"]
 
 [node name="Main Game" type="Node"]
 script = ExtResource("1_t8l0m")
@@ -18,7 +20,18 @@ position = Vector2(0, 720)
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_nxqv1")]
-position = Vector2(277, 446)
+top_level = false
+position = Vector2(146, 378)
+scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 128.0
+offset_right = 1280.0
+offset_bottom = 848.0
+script = ExtResource("5_hh6r2")
+metadata/_edit_lock_ = true
+
+[node name="Game restart menu" parent="CenterContainer" instance=ExtResource("5_ccleq")]

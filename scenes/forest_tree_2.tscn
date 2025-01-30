@@ -7,11 +7,14 @@ radius = 34.0
 height = 208.0
 
 [node name="forest_tree_2" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -102)
 shape = SubResource("CapsuleShape2D_57r3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -117)
+position = Vector2(0, 1)
 texture = ExtResource("1_olv5b")
+offset = Vector2(0, -118)
