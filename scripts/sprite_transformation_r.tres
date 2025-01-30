@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://s4r8p4wld5"]
+
+[ext_resource type="Shader" path="res://scripts/transformation_r.gdshader" id="1_2f2ro"]
+
+[resource]
+shader = ExtResource("1_2f2ro")
+shader_parameter/red = -1.0
+shader_parameter/green = 1.0
+shader_parameter/blue = -1.0

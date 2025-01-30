@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c12syqjamdgsj"]
+
+[ext_resource type="Shader" path="res://scripts/sprite_flash.gdshader" id="1_denfc"]
+
+[resource]
+shader = ExtResource("1_denfc")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 1.0

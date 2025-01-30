@@ -15,5 +15,5 @@ position = Vector2(0, -99)
 shape = SubResource("CapsuleShape2D_7cxok")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -102)
 texture = ExtResource("1_vloip")
+offset = Vector2(0, -102)
